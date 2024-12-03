@@ -82,11 +82,7 @@ const SignUp = () => {
                 <div className="text-xs bg-opacity-80 bg-slate-200 pb-4 pt-2 cursor-pointer text-center absolute bottom-0 w-full">
                   Upload Photo
                 </div>
-                <input
-                  type="file"
-                  className="hidden"
-                  onChange={handleUploadPic}
-                />
+                <input type="file" className="hidden" onChange={handleUploadPic}/>
               </label>
             </form>
           </div>
@@ -173,12 +169,7 @@ const SignUp = () => {
 
           <p className="my-5">
             Already have account ?{" "}
-            <Link
-              to={"/login"}
-              className=" text-red-600 hover:text-red-700 hover:underline"
-            >
-              Login
-            </Link>
+            <Link to={"/login"} className=" text-red-600 hover:text-red-700 hover:underline">Login</Link>
           </p>
         </div>
       </div>

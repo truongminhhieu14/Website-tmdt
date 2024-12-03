@@ -4,6 +4,7 @@ async function userDetailsController(req, res) {
     try {
         console.log("userId",req.userId)
         const user = await userModel.findById(req.userId)
+
         res.status(200).json({
             data : user,
             error : false,
