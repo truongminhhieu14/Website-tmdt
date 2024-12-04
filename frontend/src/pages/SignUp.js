@@ -66,7 +66,6 @@ const SignUp = () => {
         }else{
           toast.error("Vui lòng kiểm tra mật khẩu và xác nhận mật khẩu")
         }
-
       }
 
   return (

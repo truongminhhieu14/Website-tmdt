@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import Logo from "./Logo";
 import { GrSearch } from "react-icons/gr";
 import { FaRegUserCircle } from "react-icons/fa";
@@ -8,14 +8,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { setUserDetails } from "../store/userSlice";
 import SummaryApi from "../common";
-import Context from "../context";
+import ROLE from "../common/role";
 
 const Header = () => {
   const user = useSelector(state => state?.user?.user);
   const dispatch = useDispatch();
   const [menuDisplay, setMenuDisplay] = useState(false);
-  const context = useContext(Context);
-  console.log("user-header", user);
+
 
   const handleLogout = async () => {
     const fetchData = await fetch(SummaryApi.logout_user.url, {
@@ -57,6 +56,7 @@ const Header = () => {
 
         <div className="flex items-center gap-7">
           <div className="relative flex justify-center">
+          {user?._id && (
               <div
                 className="text-3xl cursor-pointer relative flex justify-center"
                 onClick={() => setMenuDisplay((preve) => !preve)}
@@ -68,21 +68,24 @@ const Header = () => {
                     alt={user?.name}
                   />
                 ) : (
-                  <FaRegUserCircle />
+                  <FaRegUserCircle/>
                 )}
               </div>
+            )}
 
 
             {menuDisplay && (
               <div className="absolute bg-white bottom-0 top-11 h-fit p-2 shadow-lg rounded">
                 <nav>
-                  <Link
-                    to={"admin-panel"}
-                    className="whitespace-nowrap hidden md:block hover:bg-slate-100 p-2"
-                    onClick={() => setMenuDisplay((preve) => !preve)}
-                  >
-                    Admin Panel
-                  </Link>
+                {user?.role === ROLE.ADMIN && (
+                    <Link
+                      to={"/admin-panel/all-products"}
+                      className="whitespace-nowrap hidden md:block hover:bg-slate-100 p-2"
+                      onClick={() => setMenuDisplay((preve) => !preve)}
+                    >
+                      Admin Panel
+                    </Link>
+                  )}
                 </nav>
               </div>
             )}
