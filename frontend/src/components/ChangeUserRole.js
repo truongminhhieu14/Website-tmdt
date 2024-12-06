@@ -16,6 +16,7 @@ const ChangeUserRole = ({
     const [userRole, setUserRole] = useState(role)
     const handleOnChangeSelect = (e) => {
         setUserRole(e.target.value)
+
         console.log(e.target.value)
     }
     const updateUserRole = async() =>{
@@ -65,6 +66,7 @@ const ChangeUserRole = ({
                     }
                 </select>
             </div>
+            
             <button className='w-fit mx-auto block  py-1 px-3 rounded-full bg-red-600 text-white hover:bg-red-700' onClick={updateUserRole}>Change Role</button>
         </div>
     </div>
