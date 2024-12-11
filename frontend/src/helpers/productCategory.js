@@ -9,7 +9,7 @@ const productCategory = [
     { id : 8, label : "Mỹ Phẩm", value : "mypham"},
     { id : 9, label : "Túi Xách", value : "tuixach"},
     { id : 10, label : "Nhà Sách Online", value : "nhasach"},
-    { id : 11, label : "Thể Thao & Du lịch", value : "televisions"},
+    { id : 11, label : "Thể Thao & Du lịch", value : "tt&dl"},
     { id : 12, label : "Đồ chơi", value : "dochoi"},
 ]
 
